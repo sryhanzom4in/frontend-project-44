@@ -1,8 +1,9 @@
-import readlineSync from 'readline-sync';
+/* eslint-disable no-unused-vars */
+import readlineSync from "readline-sync";
 
 const greetings = () => {
-console.log("Welcome to the Brain Games!")
-const name = readlineSync.question('May I have your name? ')
-}
-
+  console.log("Welcome to the Brain Games!");
+  const name = readlineSync.question("May I have your name? ");
+  return name;
+};
 export default greetings;
