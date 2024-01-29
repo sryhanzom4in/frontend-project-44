@@ -1,5 +1,5 @@
-import readlineSync from "readline-sync";
-import greetings from "../src/cli.js";
+import readlineSync from 'readline-sync';
+import greetings from '../src/cli.js';
 
 const getRandomInt = (max = 1000) => Math.floor(Math.random() * max);
 const name = greetings();
@@ -7,10 +7,10 @@ let a = getRandomInt();
 let b = getRandomInt();
 let count = 0;
 const isAnswerTrue = (firstN = a, secondN = b) => {
-  const answer = parseInt(readlineSync.question("Your answer: "));
+  const answer = parseInt(readlineSync.question('Your answer: '));
   const correctAnswer = a + b;
   if (answer === a + b) {
-    console.log("Correct!");
+    console.log('Correct!');
     count += 1;
     return true;
   } else {
