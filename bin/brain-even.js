@@ -25,7 +25,7 @@ const isValEven = (answer) => {
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 while (count < 3) {
   console.log(`Question: ${randomInt}`);
-  const answer = readlineSync.question('Your answer: ');
+  const answer = readlineSync.question('Your answer: ') || 'no answer';
   isValEven(answer);
   randomInt = getRandomInt();
   if (count === 3) {
