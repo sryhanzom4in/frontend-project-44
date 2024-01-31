@@ -5,6 +5,7 @@ const getRandomInt = (max = 1000) => Math.floor(Math.random() * max);
 let randomInt = getRandomInt();
 const name = greetings();
 let count = 0;
+
 const isValEven = (answer) => {
   if (randomInt % 2 === 0 && answer === 'yes') {
     console.log('Correct!');
