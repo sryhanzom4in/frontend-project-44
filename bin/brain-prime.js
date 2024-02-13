@@ -6,33 +6,36 @@ const name = greetings();
 console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
 const getRandomInt = (max = 20) => Math.floor(Math.random() * max + 1);
 let val = getRandomInt();
-let primeSqrt = Math.floor(Math.sqrt(val));
+let primeSqrt =
+    Math.floor(Math.sqrt(val)) >= 2 ? Math.floor(Math.sqrt(val)) : 2;
 let count = 0;
-let correctAnswer = 'yes';
-const isAnswerCorrect = (answer) => {
-    for (let i = 2; i <= primeSqrt + 1; i += 1) {
-        if (val % i === 0 && answer === 'no') {
-            return true;
-        } else if (val % i !== 0 && answer === 'yes') {
-            return true;
-        } else if (val % i === 0 && answer === 'yes') {
+const whatsCorrect = () => {
+    let correctAnswer = '';
+
+    for (let i = 2; i <= primeSqrt; i += 1) {
+        if (val === 2) {
+            correctAnswer = 'yes';
+            return correctAnswer;
+        }
+        if (val % i === 0) {
             correctAnswer = 'no';
-        } else if (val % i !== 0 && answer === 'no') {
+        } else if (val % i !== 0) {
             correctAnswer = 'yes';
         }
         if (i === primeSqrt) {
-            return false;
+            return correctAnswer;
         }
     }
 };
-const isPrime = (answer) => {
-    if (isAnswerCorrect(answer) === true) {
+const isAnswer = whatsCorrect();
+const isAnswerCorrect = (answer) => {
+    if (answer === isAnswer) {
         count += 1;
         console.log('Correct!');
     } else {
         count += 10;
         console.log(
-            `"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}"\nLet's try again, ${name}.`
+            `"${answer}" is wrong answer ;(. Correct answer was "${isAnswer}"\nLet's try again, ${name}.`
         );
     }
 };
@@ -41,7 +44,7 @@ while (count < 3) {
     console.log(primeSqrt);
     console.log(`Question: ${val}`);
     const answer = readlineSync.question('Your answer: ');
-    isPrime(answer);
+    isAnswerCorrect(answer);
     val = getRandomInt();
     primeSqrt = Math.floor(Math.sqrt(val));
     if (count === 3) {
