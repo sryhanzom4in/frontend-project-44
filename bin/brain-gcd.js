@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import readlineSync from 'readline-sync';
 import greetings from '../src/cli.js';
 
@@ -9,7 +10,7 @@ console.log('Find the greatest common divisor of given numbers.');
 let firstNum = getRandomInt();
 let secondNum = getRandomInt();
 let count = 0;
-let nod = 0;
+let nod;
 
 const nodCheck = (answer) => {
     while (firstNum !== secondNum) {

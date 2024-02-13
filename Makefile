@@ -12,3 +12,5 @@ brain-calc:		#запуск-игры-калькулятора
 	node bin/brain-calc.js
 brain-gcd:		#запуск-игры-НОД
 	node bin/brain-gcd.js
+brain-progression:		#запуск-игры-арифметическая-прогрессия
+	node bin/brain-progression.js
