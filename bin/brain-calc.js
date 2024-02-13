@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import greetings from '../src/cli.js';
 
-const getRandomInt = (max = 20) => Math.floor(Math.random() * max);
+const getRandomInt = (max = 20) => Math.floor(Math.random() * max + 1);
 const name = greetings();
 let firstNum = getRandomInt();
 let secondNum = getRandomInt();
@@ -33,8 +33,8 @@ while (count < 3) {
         `Question: ${firstNum} ${actionsArray[actionIndex]} ${secondNum}`
     );
     isAnswerTrue();
-    a = getRandomInt();
-    b = getRandomInt();
+    firstNum = getRandomInt();
+    secondNum = getRandomInt();
     actionIndex = getRandomInt(2);
     if (count === 3) {
         console.log(`Congratulations, ${name}!`);
