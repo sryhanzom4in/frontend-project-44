@@ -31,7 +31,7 @@ const whatsCorrectAnswer = (gameName) => {
     }
     return correctAnswer;
 };
-whatsCorrectAnswer('brainPrime');
+whatsCorrectAnswer('brainCalc');
 // const getGame = (game) => {
 //     while (counter < 3) {
 // const answer = parseInt(readlineSync.question('Your answer: '));
