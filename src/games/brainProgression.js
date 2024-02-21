@@ -15,7 +15,6 @@ const brainProgression = (correctAnswer) => {
     correctAnswer = arr[index - 1] + (arr[index + 1] - arr[index - 1]) / 2;
     gameResult.push(arr);
     gameResult.push(correctAnswer);
-    console.log(gameResult);
     return gameResult;
 };
 
