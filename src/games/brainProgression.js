@@ -17,5 +17,4 @@ const brainProgression = (correctAnswer) => {
     gameResult.push(correctAnswer);
     return gameResult;
 };
-
 export default brainProgression;

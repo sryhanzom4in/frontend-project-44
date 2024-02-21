@@ -23,12 +23,12 @@ const whatsCorrectAnswer = (gameName) => {
         correctAnswer = whatsExpression(actionIndex, correctAnswer, firstNum, secondNum);
         // создание верного ответа для игры калькулятора
     } else if (gameName === 'brainProgression') {
-        let [arr, correctAnswery] = brainProgression();
-        console.log(arr);
-        console.log(correctAnswery);
+        const [arr, correct] = brainProgression();
+        console.log(`Question: ${arr.join(', ')}`);
+        console.log(correct);
         // создание верного ответа и массива для игры на арифметическую прогрессию
-        correctAnswer = correctAnswery;
-        return arr;
+        correctAnswer = correct;
+        return correctAnswer;
     } else if (gameName === 'brainGcd') {
         correctAnswer = brainGcd(firstNum, secondNum, correctAnswer);
         // создание верного ответа для игры НОД
@@ -49,7 +49,7 @@ const getGameRule = (game) => {
         question = `Question: ${firstNum} ${actionsArray[actionIndex]} ${secondNum}`;
     } else if (game === 'brainProgression') {
         gameRule = 'What number is missing in the progression?';
-        question = `Question: ${arr}`;
+        return gameRule;
     } else if (game === 'brainGcd') {
         gameRule = 'Find the greatest common divisor of given numbers.';
         question = `Question: ${firstNum} ${secondNum}`;
@@ -64,10 +64,12 @@ const getGame = (game) => {
     const name = greetings();
     while (counter < 3) {
         const gameRule = getGameRule(game);
-        if (counter === 0) {
+        if (counter === 0 && game !== 'brainProgression') {
             console.log(gameRule[0]);
         }
-        console.log(gameRule[1]);
+        if (game === 'brainProgression') {
+            console.log(gameRule);
+        } else console.log(gameRule[1]);
         const correctAnsweru = whatsCorrectAnswer(game);
         let userAnswer = readlineSync.question('Your answer: ');
         userAnswer = parseInt(userAnswer) || userAnswer;
@@ -88,4 +90,4 @@ const getGame = (game) => {
         primeSqrt = Math.floor(Math.sqrt(num));
     }
 };
-getGame('brainPrime');
+getGame('brainProgression');
