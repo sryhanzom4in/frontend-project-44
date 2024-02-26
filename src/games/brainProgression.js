@@ -1,19 +1,20 @@
+/* eslint-disable max-len */
 import getRandomInt from '../utils/getRandom.js';
 
 const brainProgression = () => {
   const gameResult = [];
-  const arr = [];
+  const progressionArray = [];
   let firstProgressionVal = getRandomInt(100);
   const progressionDiff = getRandomInt(10);
-  while (arr.length !== 10) {
+  while (progressionArray.length !== 10) {
     const result = progressionDiff + firstProgressionVal;
-    arr.push(result);
+    progressionArray.push(result);
     firstProgressionVal = result;
   }
   const index = getRandomInt(8);
-  arr[index] = '..';
-  const correctAnswer = arr[index - 1] + (arr[index + 1] - arr[index - 1]) / 2;
-  gameResult.push(arr);
+  const correctAnswer = progressionArray[index];
+  progressionArray[index] = '..';
+  gameResult.push(progressionArray);
   gameResult.push(correctAnswer);
   return gameResult;
 };

@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable indent */
 /* eslint-disable no-else-return */
 import readlineSync from 'readline-sync';
@@ -17,44 +18,54 @@ let primeSqrt = Math.floor(Math.sqrt(num));
 
 let correctAnswer;
 export const whatsCorrectAnswer = (gameName) => {
-  if (gameName === 'brainEven') {
-    correctAnswer = isEven(num, correctAnswer);
-  } else if (gameName === 'brainCalc') {
-    correctAnswer = whatsExpression(actionIndex, correctAnswer, firstNum, secondNum);
-    // создание верного ответа для игры калькулятора
-  } else if (gameName === 'brainProgression') {
-    const [arr, correct] = brainProgression();
-    console.log(`Question: ${arr.join(' ')}`);
-    // создание верного ответа и массива для игры на арифметическую прогрессию
-    correctAnswer = correct;
-    return correctAnswer;
-  } else if (gameName === 'brainGcd') {
-    correctAnswer = brainGcd(firstNum, secondNum, correctAnswer);
-    // создание верного ответа для игры НОД
-  } else if (gameName === 'brainPrime') {
-    correctAnswer = brainPrime(num, correctAnswer, primeSqrt);
-    // создание верного ответа для игры на простое число
+  switch (gameName) {
+    case 'brainEven':
+      correctAnswer = isEven(num, correctAnswer);
+      break;
+    case 'brainCalc':
+      correctAnswer = whatsExpression(actionIndex, correctAnswer, firstNum, secondNum);
+      break;
+    case 'brainProgression':
+      const [arr, correct] = brainProgression();
+      console.log(`Question: ${arr.join(' ')}`);
+      correctAnswer = correct;
+      return correctAnswer;
+    case 'brainGcd':
+      correctAnswer = brainGcd(firstNum, secondNum, correctAnswer);
+      break;
+    case 'brainPrime':
+      correctAnswer = brainPrime(num, correctAnswer, primeSqrt);
+      break;
+    default:
+      console.log('bruh');
   }
   return correctAnswer;
 };
 export const getGameRule = (game) => {
   let gameRule;
   let question;
-  if (game === 'brainEven') {
-    gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
-    question = `Question: ${num}`;
-  } else if (game === 'brainCalc') {
-    gameRule = 'What is the result of the expression?';
-    question = `Question: ${firstNum} ${actionsArray[actionIndex]} ${secondNum}`;
-  } else if (game === 'brainProgression') {
-    gameRule = 'What number is missing in the progression?';
-    return gameRule;
-  } else if (game === 'brainGcd') {
-    gameRule = 'Find the greatest common divisor of given numbers.';
-    question = `Question: ${firstNum} ${secondNum}`;
-  } else if (game === 'brainPrime') {
-    gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-    question = `Question: ${num}`;
+  switch (game) {
+    case 'brainEven':
+      gameRule = 'Answer "yes" if the number is even, otherwise answer "no".';
+      question = `Question: ${num}`;
+      break;
+    case 'brainCalc':
+      gameRule = 'What is the result of the expression?';
+      question = `Question: ${firstNum} ${actionsArray[actionIndex]} ${secondNum}`;
+      break;
+    case 'brainProgression':
+      gameRule = 'What number is missing in the progression?';
+      return gameRule;
+    case 'brainGcd':
+      gameRule = 'Find the greatest common divisor of given numbers.';
+      question = `Question: ${firstNum} ${secondNum}`;
+      break;
+    case 'brainPrime':
+      gameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+      question = `Question: ${num}`;
+      break;
+    default:
+      console.log('bruh');
   }
   return [gameRule, question];
 };
