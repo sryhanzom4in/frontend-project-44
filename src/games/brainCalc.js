@@ -1,13 +1,12 @@
 export const actionsArray = ['', '*', '-', '+'];
 export const whatsExpression = (actionIndex, correctAnswer, firstNum, secondNum) => {
-    if (actionsArray[actionIndex] === '*') {
-        correctAnswer = firstNum * secondNum;
-    } else if (actionsArray[actionIndex] === '-') {
-        correctAnswer = firstNum - secondNum;
-    } else {
-        correctAnswer = firstNum + secondNum;
-    }
-    console.log(`${firstNum}    ${secondNum}`);
-    console.log(correctAnswer);
-    return correctAnswer;
+  let correctAnsweru;
+  if (actionsArray[actionIndex] === '*') {
+    correctAnsweru = firstNum * secondNum;
+  } else if (actionsArray[actionIndex] === '-') {
+    correctAnsweru = firstNum - secondNum;
+  } else {
+    correctAnsweru = firstNum + secondNum;
+  }
+  return +correctAnsweru;
 };
