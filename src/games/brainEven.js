@@ -1,9 +1,9 @@
 const isEven = (num) => {
-  let correctAnsweru;
+  let correctAnswer;
   if (num % 2 === 0) {
-    correctAnsweru = 'yes';
-  } else correctAnsweru = 'no';
-  return correctAnsweru;
+    correctAnswer = 'yes';
+  } else correctAnswer = 'no';
+  return correctAnswer;
 };
 
 export default isEven;

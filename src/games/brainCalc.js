@@ -1,12 +1,12 @@
 export const actionsArray = ['', '*', '-', '+'];
-export const whatsExpression = (actionIndex, correctAnswer, firstNum, secondNum) => {
-  let correctAnsweru;
+export const whatsExpression = (actionIndex, firstNum, secondNum) => {
+  let correctAnswer;
   if (actionsArray[actionIndex] === '*') {
-    correctAnsweru = firstNum * secondNum;
+    correctAnswer = firstNum * secondNum;
   } else if (actionsArray[actionIndex] === '-') {
-    correctAnsweru = firstNum - secondNum;
+    correctAnswer = firstNum - secondNum;
   } else {
-    correctAnsweru = firstNum + secondNum;
+    correctAnswer = firstNum + secondNum;
   }
-  return +correctAnsweru;
+  return +correctAnswer;
 };

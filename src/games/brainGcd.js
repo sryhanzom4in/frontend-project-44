@@ -1,12 +1,11 @@
 /* eslint-disable no-param-reassign */
-const brainGcd = (firstNum, secondNum, correctAnswer) => {
+const brainGcd = (firstNum, secondNum) => {
   while (firstNum !== secondNum) {
     if (firstNum > secondNum) {
       firstNum -= secondNum;
     } else secondNum -= firstNum;
   }
-  correctAnswer = firstNum;
-  return correctAnswer;
+  return firstNum;
 };
 
 export default brainGcd;

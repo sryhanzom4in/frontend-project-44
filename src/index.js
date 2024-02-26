@@ -23,7 +23,7 @@ export const whatsCorrectAnswer = (gameName) => {
       correctAnswer = isEven(num, correctAnswer);
       break;
     case 'brainCalc':
-      correctAnswer = whatsExpression(actionIndex, correctAnswer, firstNum, secondNum);
+      correctAnswer = whatsExpression(actionIndex, firstNum, secondNum);
       break;
     case 'brainProgression':
       const [arr, correct] = brainProgression();
@@ -34,7 +34,7 @@ export const whatsCorrectAnswer = (gameName) => {
       correctAnswer = brainGcd(firstNum, secondNum, correctAnswer);
       break;
     case 'brainPrime':
-      correctAnswer = brainPrime(num, correctAnswer, primeSqrt);
+      correctAnswer = brainPrime(num, primeSqrt);
       break;
     default:
       console.log('bruh');
@@ -83,10 +83,10 @@ export const getGame = (game) => {
     } else if (Array.isArray(gameRule)) {
       console.log(gameRule[1]);
     }
-    const correctAnsweru = whatsCorrectAnswer(game);
+    correctAnswer = whatsCorrectAnswer(game);
     let userAnswer = readlineSync.question('Your answer: ');
     userAnswer = parseInt(userAnswer, 10) || userAnswer;
-    if (userAnswer === correctAnsweru) {
+    if (userAnswer === correctAnswer) {
       counter += 1;
       console.log('Correct!');
       num = getRandomInt();
@@ -95,7 +95,7 @@ export const getGame = (game) => {
       actionIndex = getRandomInt(3);
       primeSqrt = Math.floor(Math.sqrt(num));
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnsweru}".\nLet's try again, ${name}!`);
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${name}!`);
       break;
     }
     if (counter === 3) {

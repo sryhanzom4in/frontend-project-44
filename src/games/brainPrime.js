@@ -1,5 +1,5 @@
 /* eslint-disable no-else-return */
-const brainPrime = (num, a, primeSqrt) => {
+const brainPrime = (num, primeSqrt) => {
   let correctAnswer;
   if (num === 1 || num === 2 || num === 3) {
     correctAnswer = 'yes';
