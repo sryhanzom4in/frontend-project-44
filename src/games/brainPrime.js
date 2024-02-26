@@ -1,7 +1,10 @@
 /* eslint-disable no-else-return */
 const brainPrime = (num, primeSqrt) => {
   let correctAnswer;
-  if (num === 1 || num === 2 || num === 3) {
+  if (num === 1) {
+    correctAnswer = 'no';
+  }
+  if (num === 2 || num === 3) {
     correctAnswer = 'yes';
     return correctAnswer;
   } else {
