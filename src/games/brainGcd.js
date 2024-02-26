@@ -7,6 +7,7 @@ const brainGcd = (firstNum, secondNum, correctAnswer) => {
     }
     correctAnswer = firstNum;
     console.log(correctAnswer);
+    return correctAnswer;
 };
 
 export default brainGcd;

@@ -16,7 +16,7 @@ let actionIndex = getRandomInt(3);
 let primeSqrt = Math.floor(Math.sqrt(num));
 
 let correctAnswer;
-const whatsCorrectAnswer = (gameName) => {
+export const whatsCorrectAnswer = (gameName) => {
     if (gameName === 'brainEven') {
         correctAnswer = isEven(num, correctAnswer);
     } else if (gameName === 'brainCalc') {
@@ -38,7 +38,7 @@ const whatsCorrectAnswer = (gameName) => {
     }
     return correctAnswer;
 };
-const getGameRule = (game) => {
+export const getGameRule = (game) => {
     let gameRule;
     let question;
     if (game === 'brainEven') {
@@ -59,23 +59,31 @@ const getGameRule = (game) => {
     }
     return [gameRule, question];
 };
-const getGame = (game) => {
+export const getGame = (game) => {
     let counter = 0;
     const name = greetings();
     while (counter < 3) {
         const gameRule = getGameRule(game);
+        // строка 67-75 - отработка отдельного случая с игрой progression
         if (counter === 0 && game !== 'brainProgression') {
             console.log(gameRule[0]);
         }
-        if (game === 'brainProgression') {
+        if (counter === 0 && game === 'brainProgression') {
             console.log(gameRule);
-        } else console.log(gameRule[1]);
+        } else if (Array.isArray(gameRule)) {
+            console.log(gameRule[1]);
+        }
         const correctAnsweru = whatsCorrectAnswer(game);
         let userAnswer = readlineSync.question('Your answer: ');
         userAnswer = parseInt(userAnswer) || userAnswer;
         if (userAnswer === correctAnsweru) {
             counter += 1;
             console.log('Correct!');
+            num = getRandomInt();
+            firstNum = getRandomInt();
+            secondNum = getRandomInt();
+            actionIndex = getRandomInt(3);
+            primeSqrt = Math.floor(Math.sqrt(num));
         } else {
             console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnsweru}".\nLet's try again, ${name}!`);
             break;
@@ -83,11 +91,5 @@ const getGame = (game) => {
         if (counter === 3) {
             console.log(`Congratulations, ${name}!`);
         }
-        num = getRandomInt();
-        firstNum = getRandomInt();
-        secondNum = getRandomInt();
-        actionIndex = getRandomInt(3);
-        primeSqrt = Math.floor(Math.sqrt(num));
     }
 };
-getGame('brainProgression');
