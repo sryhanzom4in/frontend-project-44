@@ -23,7 +23,7 @@
 
 ### brain-prime gameplay
 
-##### type "brain-prime" to play.
+#### type "brain-prime" to play.
 
 [![asciicast](https://asciinema.org/a/rs0PkOpDVfEpbXNzD7lVfrdnf.svg)](https://asciinema.org/a/rs0PkOpDVfEpbXNzD7lVfrdnf)
 
